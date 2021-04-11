@@ -1,0 +1,12 @@
+Solve problem configurasi php
+1. Open [xampp_folder_path]/php/php.ini to edit.
+2. Search for ;extension=intl and remove the ;.
+3. Save the php.ini file and restart Apache.
+
+Inisiasi codeigniter
+1. copy file env (direktori akar ci). Rename file copy an menjadi ".env" tanpa petik
+2. baris 17 pd file .env yaitu:
+#CI_ENVIRONMENT = production
+hilangkan #
+ganti = development
+
