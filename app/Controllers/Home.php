@@ -6,8 +6,6 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('app');
-		// $data['uri'] = "dashboard";
-		// $this->load->view('app',$data);
+		return view('home');
 	}
 }

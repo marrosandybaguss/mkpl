@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to CodeIgniter 4!</title>
+    <title>Kelompok 5</title>
     <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <!-- Bootstrap core CSS-->
-    <link href="<?php echo base_url('vendor/twbs/bootstrap/dist/css/bootstrap.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('vendor/twbs/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('vendor/twbs/bootstrap/dist/css/bootstrap-grid.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('vendor/twbs/bootstrap/dist/css/bootstrap-grid.min.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('public/assets/css/simple-sidebar.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('public/assets/css/custom.css') ?>" rel="stylesheet">
+    <link href="twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="twbs/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="twbs/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="assets/css/simple-sidebar.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -26,7 +26,7 @@
     <div class="d-flex" id="wrapper">
 
         <!-- SIDEBAR -->
-        <?php include("includes/sidebar.php"); ?>
+        <?php //include("includes/sidebar.php"); ?>
         <!--  -->
 
         <!-- PAGE CONTENT -->
@@ -50,14 +50,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url('vendor/twbs/bootstrap/dist/js/bootstrap.js') ?>"></script>
-    <script src="<?php echo base_url('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
-    <script src="<?php echo base_url('vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js') ?>"></script>
-    <script src="<?php echo base_url('vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="twbs/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="twbs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="<?php echo base_url('public/assets/js/jquery.js') ?>"></script>
-    <script src="<?php echo base_url('public/assets/js/jquery.min.js') ?>"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
 
     <script>
         $("#menu-toggle").click(function(e) {
