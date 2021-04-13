@@ -1,0 +1,35 @@
+.dashboard-box {
+    width: 250px;
+    height: 150px;    
+    border-radius: 10px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.dash-box-icon {
+    font-size: 32px;
+    margin-left: 30px;
+    margin-top: 10px;
+    position: absolute;    
+}
+
+.dash-box-title {
+    font-size: 18px;
+    color: white;
+}
+
+.dash-box-count {
+    font-size: 52px;
+    color: white;
+    font-weight: 700;          
+    margin-right: 40px;
+    margin-top: 60px;
+    width: 250px;
+    height: 150px;
+    text-align: right;
+}
+
+.table-action-icon i{
+    font-size: 12px;
+}
+
