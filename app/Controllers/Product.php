@@ -14,8 +14,12 @@ class Product extends BaseController
 
 	public function index()
 	{
-		// $products = $this->productModel->findAll();
+		$products = $this->productModel->findAll();
+
+		$data = [
+			'products' => $products
+		];
 		
-		return view('product');
+		return view('product', $data);
 	}
 }

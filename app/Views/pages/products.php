@@ -19,7 +19,23 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($products as $product): ?>
                 <tr>
+                    <th scope="row">1</th>
+                    <td><?= $product['prod_name']; ?></td>
+                    <td><?= $product['prod_type']; ?></td>
+                    <td><?= $product['qty']; ?></td>
+                    <td>
+                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                            <i class="fa fa-pen text-white"></i>
+                        </span>
+                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                            <i class="fa fa-trash text-white"></i>
+                        </span>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+                <!-- <tr>
                     <th scope="row">1</th>
                     <td>Prodcut 1</td>
                     <td>Food</td>
@@ -102,21 +118,7 @@
                             <i class="fa fa-trash text-white"></i>
                         </span>
                     </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Prodcut 1</td>
-                    <td>Food</td>
-                    <td>120</td>
-                    <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            <i class="fa fa-pen text-white"></i>
-                        </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                            <i class="fa fa-trash text-white"></i>
-                        </span>
-                    </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
