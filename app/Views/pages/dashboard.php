@@ -4,37 +4,31 @@
         <div class="dashboard-box bg-primary">
             <div class="row">
                 <span class="dash-box-icon">
-                    <i class="fas fa-file-invoice-dollar text-white"></i> <span class="dash-box-title">Total Sales</span>
+                    <i class="fas fa-boxes text-white"></i> <span class="dash-box-title">Total Food</span>
                 </span>
             </div>
             <div class="row">
-                <div class="dash-box-count">
-                    $1000
-                </div>
+                <div class="dash-box-count"><?= $totalFood ?></div>
             </div>
         </div>
         <div class="dashboard-box bg-primary">
             <div class="row">
                 <span class="dash-box-icon">
-                    <i class="fas fa-boxes text-white"></i> <span class="dash-box-title">Total Products</span>
+                    <i class="fas fa-boxes text-white"></i> <span class="dash-box-title">Total T-shirt</span>
                 </span>
             </div>
             <div class="row">
-                <div class="dash-box-count">
-                    3012
-                </div>
+                <div class="dash-box-count"><?= $totalTshirt ?></div>
             </div>
         </div>
         <div class="dashboard-box bg-primary">
             <div class="row">
                 <span class="dash-box-icon">
-                    <i class="fas fa-truck text-white"></i> <span class="dash-box-title">On Delivery</span>
+                    <i class="fas fa-boxes text-white"></i> <span class="dash-box-title">Total Smartphone</span>
                 </span>
             </div>
             <div class="row col-sm-12">
-                <div class="dash-box-count">
-                    154
-                </div>
+                <div class="dash-box-count"><?= $totalSmartphone ?></div>
             </div>
         </div>
     </div>
