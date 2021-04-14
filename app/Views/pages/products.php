@@ -1,3 +1,23 @@
+<?php 
+    if(session()->getFlashdata('message') == 'Success') {
+        echo "
+        <div class='col-md-3'>
+            <div class='alert alert-success' role='alert'>
+                Product successfully deleted.
+            </div>
+        </div>
+        "; 
+    } else {
+        echo "
+        <div class='col-md-3'>
+            <div class='alert alert-danger' role='alert'>
+                Delete failed! Product not found.
+            </div>
+        </div>    
+        "; 
+    }
+?>
+
 <div class="container">
     <div class="row ml-3">
         <h5 class="mt-4">Products</h5>
@@ -135,10 +155,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure want to delete (qty) product?
+                Are you sure want to delete this product?
                 <div class="row mt-5 float-right">
                     <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger mr-2">Delete</button>
+                    <a href="product/delete/1">
+                        <button type="button" class="btn btn-danger mr-2">Delete</button>                        
+                    </a>                    
                 </div>
             </div>
 
@@ -168,7 +190,7 @@
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Type:</label>
                         <select class="custom-select" id="inputGroupSelect01">
-                            <option >Choose...</option>
+                            <option>Choose...</option>
                             <option value="1" selected>Food</option>
                             <option value="2">Type1</option>
                             <option value="3">Type2</option>
@@ -201,11 +223,11 @@
                 <form>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="recipient-name" >
+                        <input type="text" class="form-control" id="recipient-name">
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Quantity:</label>
-                        <input type="number" class="form-control" id="recipient-name" >
+                        <input type="number" class="form-control" id="recipient-name">
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Type:</label>
