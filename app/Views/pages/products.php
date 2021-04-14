@@ -197,35 +197,36 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form>
+            <form action="product/create" method="post">
+                <?= csrf_field(); ?>
+                <div class="modal-body">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="recipient-name" >
+                        <label for="prod_name" class="col-form-label">Name:</label>
+                        <input type="text" name="prod_name" class="form-control" id="prod_name" >
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Quantity:</label>
-                        <input type="number" class="form-control" id="recipient-name" >
+                        <label for="prod_qty" class="col-form-label">Quantity:</label>
+                        <input type="number" name="prod_qty" class="form-control" id="prod_qty" >
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Type:</label>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <label for="prod_type" class="col-form-label">Type:</label>
+                        <select class="custom-select" name="prod_type" id="prod_type">
                             <option selected>Choose...</option>
-                            <option value="1">Food</option>
-                            <option value="2">Type1</option>
-                            <option value="3">Type2</option>
+                            <option value="food">Food</option>
+                            <option value="tshirt">T-Shirt</option>
+                            <option value="smartphone">Smartphone</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Notes:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Update Data</button>
-            </div>
+                        <label for="prod_notes" class="col-form-label">Notes:</label>
+                        <textarea class="form-control" name="prod_notes" id="prod_notes"></textarea>
+                    </div>                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Create Data</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

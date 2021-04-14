@@ -18,4 +18,18 @@ class Product extends BaseController
 		
 		return view('product');
 	}
+
+	public function create()
+	{
+		$data = $this->request->getVar();
+		
+		$this->productModel->save([
+			'prod_name' => $this->request->getVar('prod_name'),
+			'prod_type' => $this->request->getVar('prod_type'),
+			'prod_qty' => $this->request->getVar('prod_qty'),
+			'prod_notes' => $this->request->getVar('prod_notes')
+		]);
+
+		return redirect()->to('/');
+	}
 }
