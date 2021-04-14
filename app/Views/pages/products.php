@@ -1,4 +1,9 @@
 <div class="container">
+    <?php if(session()->getFlashdata('message')): ?>
+    <div class="alert alert-success" role="alert">
+      <?= session()->getFlashdata('message'); ?>
+    </div>
+    <?php endif; ?>
     <div class="row ml-3">
         <h5 class="mt-4">Products</h5>
     </div>

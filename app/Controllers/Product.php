@@ -30,6 +30,8 @@ class Product extends BaseController
 			'prod_notes' => $this->request->getVar('prod_notes')
 		]);
 
+		session()->setFlashdata('message', 'Product Successfully Added');
+
 		return redirect()->to('/');
 	}
 }
