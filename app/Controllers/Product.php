@@ -58,12 +58,8 @@ class Product extends BaseController
 
 	public function delete($id)
 	{		
-		if (!isset($id)) {			
-			session()->setFlashdata('message', 'Failed');
-		}
-
 		if ($this->productModel->delete($id)) {
-			session()->setFlashdata('message', 'Success');							
+			session()->setFlashdata('message', 'Product Successfully Deleted.');
 		}
 		return redirect()->to('/') ;
 	}

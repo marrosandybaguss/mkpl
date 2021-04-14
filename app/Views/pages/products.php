@@ -1,23 +1,3 @@
-<?php 
-    if(session()->getFlashdata('message') == 'Success') {
-        echo "
-        <div class='col-md-3'>
-            <div class='alert alert-success' role='alert'>
-                Product successfully deleted.
-            </div>
-        </div>
-        "; 
-    } else {
-        echo "
-        <div class='col-md-3'>
-            <div class='alert alert-danger' role='alert'>
-                Delete failed! Product not found.
-            </div>
-        </div>    
-        "; 
-    }
-?>
-
 <div class="container">
     <?php if(session()->getFlashdata('message')): ?>
     <div class="alert alert-success" role="alert">
@@ -44,9 +24,10 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $number = 1; ?>
                 <?php foreach ($products as $product): ?>
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row"><?= $number; ?></th>
                     <td><?= $product['prod_name']; ?></td>
                     <td><?= $product['prod_type']; ?></td>
                     <td><?= $product['prod_qty']; ?></td>
@@ -54,19 +35,20 @@
                         <span class="btn btn-primary" data-toggle="modal" data-target="<?= '#editModal'.$product['id'] ?>">
                             <i class="fa fa-pen text-white"></i>
                         </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                        <span class="btn btn-danger" data-toggle="modal" data-target="<?= '#deleteModal'.$product['id'] ?>">
                             <i class="fa fa-trash text-white"></i>
                         </span>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+                <?php $number++; endforeach; ?>
             </tbody>
         </table>
     </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<?php foreach ($products as $product): ?>
+<div class="modal fade" id="<?= 'deleteModal'.$product['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -81,7 +63,7 @@
                 Are you sure want to delete this product?
                 <div class="row mt-5 float-right">
                     <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Close</button>
-                    <a href="product/delete/1">
+                    <a href="<?= 'product/delete/'.$product['id'] ?>">
                         <button type="button" class="btn btn-danger mr-2">Delete</button>                        
                     </a>                    
                 </div>
@@ -90,6 +72,7 @@
         </div>
     </div>
 </div>
+<?php endforeach; ?>
 
 <?php foreach ($products as $product): ?>
 <div class="modal fade" id="<?= 'editModal'.$product['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -101,19 +84,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form>
+            <form action="<?= 'product/update/'.$product['id'] ?>" method="post">
+                <?= csrf_field(); ?>
+                <div class="modal-body">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="recipient-name" value="<?= $product['prod_name'] ?>">
+                        <label for="prod_name" class="col-form-label">Name:</label>
+                        <input type="text" name="prod_name" class="form-control" id="prod_name" value="<?= $product['prod_name'] ?>">
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Quantity:</label>
-                        <input type="number" class="form-control" id="recipient-name" value="<?= $product['prod_qty'] ?>">
+                        <label for="prod_qty" class="col-form-label">Quantity:</label>
+                        <input type="number" name="prod_qty" class="form-control" id="prod_qty" value="<?= $product['prod_qty'] ?>">
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Type:</label>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <label for="prod_type" class="col-form-label">Type:</label>
+                        <select class="custom-select" name="prod_type" id="prod_type">
                             <option >Choose...</option>
                             <option value="food" <?php if($product['prod_type']=='food') echo 'selected' ?>>Food</option>
                             <option value="tshirt" <?php if($product['prod_type']=='tshirt') echo 'selected' ?>>T-Shirt</option>
@@ -121,15 +105,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Notes:</label>
-                        <textarea class="form-control" id="message-text"><?= $product['prod_notes'] ?></textarea>
+                        <label for="prod_notes" class="col-form-label">Notes:</label>
+                        <textarea class="form-control" name="prod_notes" id="prod_notes"><?= $product['prod_notes'] ?></textarea>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="product/update/1"><button type="button" class="btn btn-primary">Update Data</button></a>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update Data</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
