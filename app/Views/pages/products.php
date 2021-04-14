@@ -1,3 +1,23 @@
+<?php 
+    if(session()->getFlashdata('message') == 'Success') {
+        echo "
+        <div class='col-md-3'>
+            <div class='alert alert-success' role='alert'>
+                Product successfully deleted.
+            </div>
+        </div>
+        "; 
+    } else {
+        echo "
+        <div class='col-md-3'>
+            <div class='alert alert-danger' role='alert'>
+                Delete failed! Product not found.
+            </div>
+        </div>    
+        "; 
+    }
+?>
+
 <div class="container">
     <?php if(session()->getFlashdata('message')): ?>
     <div class="alert alert-success" role="alert">
@@ -58,10 +78,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure want to delete (qty) product?
+                Are you sure want to delete this product?
                 <div class="row mt-5 float-right">
                     <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger mr-2">Delete</button>
+                    <a href="product/delete/1">
+                        <button type="button" class="btn btn-danger mr-2">Delete</button>                        
+                    </a>                    
                 </div>
             </div>
 
