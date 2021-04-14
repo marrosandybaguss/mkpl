@@ -1,0 +1,14 @@
+1. Buat database di phpMyAdmin
+dgn mana mkpl
+2. Import file sql di database mkpl
+
+3. Pada file .env
+hilangkan #, pada:
+Baris 23
+# app.baseURL = 'http://localhost:8080'
+Baris 54 - 58 
+# database.default.hostname = localhost
+# database.default.database = mkpl
+# database.default.username = root
+# database.default.password = 
+# database.default.DBDriver = MySQLi
