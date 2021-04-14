@@ -24,9 +24,9 @@
                     <th scope="row">1</th>
                     <td><?= $product['prod_name']; ?></td>
                     <td><?= $product['prod_type']; ?></td>
-                    <td><?= $product['qty']; ?></td>
+                    <td><?= $product['prod_qty']; ?></td>
                     <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                        <span class="btn btn-primary" data-toggle="modal" data-target="<?= '#editModal'.$product['id'] ?>">
                             <i class="fa fa-pen text-white"></i>
                         </span>
                         <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
@@ -35,90 +35,6 @@
                     </td>
                 </tr>
                 <?php endforeach; ?>
-                <!-- <tr>
-                    <th scope="row">1</th>
-                    <td>Prodcut 1</td>
-                    <td>Food</td>
-                    <td>120</td>
-                    <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            <i class="fa fa-pen text-white"></i>
-                        </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                            <i class="fa fa-trash text-white"></i>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Prodcut 1</td>
-                    <td>Food</td>
-                    <td>120</td>
-                    <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            <i class="fa fa-pen text-white"></i>
-                        </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                            <i class="fa fa-trash text-white"></i>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Prodcut 1</td>
-                    <td>Food</td>
-                    <td>120</td>
-                    <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            <i class="fa fa-pen text-white"></i>
-                        </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                            <i class="fa fa-trash text-white"></i>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Prodcut 1</td>
-                    <td>Food</td>
-                    <td>120</td>
-                    <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            <i class="fa fa-pen text-white"></i>
-                        </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                            <i class="fa fa-trash text-white"></i>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Prodcut 1</td>
-                    <td>Food</td>
-                    <td>120</td>
-                    <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            <i class="fa fa-pen text-white"></i>
-                        </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                            <i class="fa fa-trash text-white"></i>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Prodcut 1</td>
-                    <td>Food</td>
-                    <td>120</td>
-                    <td>
-                        <span class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            <i class="fa fa-pen text-white"></i>
-                        </span>
-                        <span class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                            <i class="fa fa-trash text-white"></i>
-                        </span>
-                    </td>
-                </tr> -->
             </tbody>
         </table>
     </div>
@@ -148,11 +64,12 @@
     </div>
 </div>
 
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<?php foreach ($products as $product): ?>
+<div class="modal fade" id="<?= 'editModal'.$product['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit (product name)</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit <?= $product['prod_name'] ?></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -161,24 +78,24 @@
                 <form>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="recipient-name" value="Product 1">
+                        <input type="text" class="form-control" id="recipient-name" value="<?= $product['prod_name'] ?>">
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Quantity:</label>
-                        <input type="number" class="form-control" id="recipient-name" value="120">
+                        <input type="number" class="form-control" id="recipient-name" value="<?= $product['prod_qty'] ?>">
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Type:</label>
                         <select class="custom-select" id="inputGroupSelect01">
                             <option >Choose...</option>
-                            <option value="1" selected>Food</option>
-                            <option value="2">Type1</option>
-                            <option value="3">Type2</option>
+                            <option value="food" <?php if($product['prod_type']=='food') echo 'selected' ?>>Food</option>
+                            <option value="tshirt" <?php if($product['prod_type']=='tshirt') echo 'selected' ?>>T-Shirt</option>
+                            <option value="smartphone" <?php if($product['prod_type']=='smartphone') echo 'selected' ?>>Smartphone</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Notes:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="message-text"><?= $product['prod_notes'] ?></textarea>
                     </div>
                 </form>
             </div>
@@ -189,6 +106,7 @@
         </div>
     </div>
 </div>
+<?php endforeach; ?>
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -213,9 +131,9 @@
                         <label for="recipient-name" class="col-form-label">Type:</label>
                         <select class="custom-select" id="inputGroupSelect01">
                             <option selected>Choose...</option>
-                            <option value="1">Food</option>
-                            <option value="2">Type1</option>
-                            <option value="3">Type2</option>
+                            <option value="food">Food</option>
+                            <option value="tshirt">T-Shirt</option>
+                            <option value="smartphone">Smartphone</option>
                         </select>
                     </div>
                     <div class="form-group">
