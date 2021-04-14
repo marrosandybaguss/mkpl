@@ -63,7 +63,7 @@
                     Are you sure want to delete this product?
                     <div class="row mt-5 float-right">
                         <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Close</button>
-                        <a href="<?= 'product/delete/' . $product['id'] ?>">
+                        <a href="<?= 'app/delete/' . $product['id'] ?>">
                             <button type="button" class="btn btn-danger mr-2">Delete</button>
                         </a>
                     </div>
@@ -83,7 +83,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= 'product/update/' . $product['id'] ?>" method="post">
+                <form action="<?= 'app/update/' . $product['id'] ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="modal-body">
                         <div class="form-group">
@@ -127,7 +127,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="product/create" method="post">
+            <form action="app/create" method="post">
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                     <div class="form-group">
