@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\ProductModel;
 use CodeIgniter\CLI\Console;
 
-class App extends BaseController
+class Product extends BaseController
 {
 	protected $productModel;
 
@@ -62,33 +62,5 @@ class App extends BaseController
 		}
 		return redirect()->to('/') ;
 	}
-			
-	public function dashboard()
-	{		
-		$totalFood = 0;
-		$totalTshirt = 0;
-		$totalSmartphone = 0;
-
-		$products = $this->productModel->findAll();				
-
-		foreach ($products as $product) {
-			if ($product['prod_type'] == 'food') {
-				$totalFood++;
-			} elseif ($product['prod_type'] == 'tshirt') {
-				$totalTshirt++;
-			} elseif ($product['prod_type'] == 'smartphone') {
-				$totalSmartphone++;
-			}
-		}
-
-		$data = [			
-			'type' => 'dashboard',
-			'totalFood' => $totalFood,
-			'totalTshirt' => $totalTshirt,
-			'totalSmartphone' => $totalSmartphone
-		];		
-		return view('app', $data);
-	}
-	
 
 }
